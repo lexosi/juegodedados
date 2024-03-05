@@ -1,6 +1,7 @@
 package com.juegodedados.security;
 
 import com.juegodedados.model.Player;
+import com.juegodedados.repository.PlayerRepository;
 
 import java.util.ArrayList;
 
@@ -9,13 +10,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
+    @Service
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService{
 
     @Autowired
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Player player = com.juegodedados.repository.PlayerRepository.findByName(username);
+        Player player = PlayerRepository.findByName(username);
         if (player == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
