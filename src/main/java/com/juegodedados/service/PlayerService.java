@@ -20,18 +20,15 @@ public class PlayerService {
     @Autowired
     private GameRepository gameRepository;
 
-    @SuppressWarnings("null")
     public Player createPlayer(Player player) {
         return playerRepository.save(player);
     }
 
-    @SuppressWarnings("null")
     public Optional<Player> getPlayer(Long id) {
         return playerRepository.findById(id);
     }
 
     public Player updatePlayer(Long id, Player playerDetails) {
-        @SuppressWarnings("null")
         Player player = playerRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Player not found for this id :: " + id));
     
@@ -41,7 +38,6 @@ public class PlayerService {
         return updatedPlayer;
     }
 
-    @SuppressWarnings("null")
     public void deletePlayer(Long id) {
         playerRepository.deleteById(id);
     }
@@ -51,7 +47,7 @@ public class PlayerService {
     }
 
     public double getSuccessRate(Long id) {
-        @SuppressWarnings({ "null", "unused" })
+        @SuppressWarnings("unused")
         Player player = playerRepository.findById(id).orElseThrow(() -> new RuntimeException("Player not found"));
         double totalGames = getTotalGames(id);
         double gamesWon = getGamesWon(id);
