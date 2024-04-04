@@ -14,7 +14,7 @@ public class GameService {
     @Autowired
     private GameRepository gameRepository;
 
-    public Game rollDice(Long playerId) {
+    public Game rollDice(int playerId) {
         Random rand = new Random();
         int dice1 = rand.nextInt(6) + 1;
         int dice2 = rand.nextInt(6) + 1;

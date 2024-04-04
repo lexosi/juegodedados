@@ -32,7 +32,7 @@ public class PlayerService {
         Player player = playerRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Player not found for this id :: " + id));
     
-        player.setName(Player.getName());
+        player.setName(playerDetails.getName());
         player.setRegistrationDate(playerDetails.getRegistrationDate());
         final Player updatedPlayer = playerRepository.save(player);
         return updatedPlayer;

@@ -1,45 +1,53 @@
 package com.juegodedados.model;
 
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan
+
+import jakarta.persistence.*;
+
+//import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+
+
+@Entity
+@Table(name = "games")
 public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Long playerId;
+    private int id;
+    @Column(name = "player_id")
+    private int playerId;
+    @Column(name = "dice1")
     private int dice1;
+    @Column(name = "dice2")
     private int dice2;
+    @Column(name = "win")
     private boolean win;
 
     public Game() {}
 
-    public Game(Long playerId, int dice1, int dice2, boolean win) {
+    public Game(int playerId, int dice1, int dice2, boolean win) {
         this.playerId = playerId;
         this.dice1 = dice1;
         this.dice2 = dice2;
         this.win = win;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getPlayerId() {
+    public int getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(Long playerId) {
+    public void setPlayerId(int playerId) {
         this.playerId = playerId;
     }
 

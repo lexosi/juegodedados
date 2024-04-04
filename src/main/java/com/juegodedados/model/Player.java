@@ -1,43 +1,45 @@
 package com.juegodedados.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
-@jakarta.persistence.Entity
+@Entity
+@Table(name = "players")
 public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private static String name;
+    private int id;
+    @Column(name = "name")    
+    private String name;
+    @Column(name = "registration_date")
     private Date registrationDate;
-    private static String password;
+    @Column(name = "password")
+    private String password;
 
     public Player() {
     }
 
     public Player(String name) {
-        Player.name = name;
+        this.name = name;
         this.registrationDate = new Date();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public static String getName() {
-        return name;
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String name) {
-        Player.name = name;
+        this.name = name;
     }
 
     public Date getRegistrationDate() {
@@ -48,7 +50,7 @@ public class Player {
         this.registrationDate = registrationDate;
     }
 
-    public static String getPassword() {
+    public String getPassword() {
         return password;
     }
 

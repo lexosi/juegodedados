@@ -16,7 +16,7 @@ public class GameController {
     private GameService gameService;
 
     @PostMapping
-    public ResponseEntity<Game> rollDice(@PathVariable Long id) {
+    public ResponseEntity<Game> rollDice(@PathVariable int id) {
         return ResponseEntity.ok(gameService.rollDice(id));
     }
 
