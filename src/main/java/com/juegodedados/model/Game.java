@@ -2,8 +2,6 @@ package com.juegodedados.model;
 
 
 
-
-
 import jakarta.persistence.*;
 
 //import org.springframework.boot.autoconfigure.domain.EntityScan;
